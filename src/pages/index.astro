@@ -508,7 +508,6 @@ import Layout from '../layouts/Layout.astro';
     .carousel-btn { display: none; }
   }
 </style>
-
 <script>
   const track = document.querySelector('.reviews-track') as HTMLElement;
   const cards = document.querySelectorAll('.review-card');
@@ -550,6 +549,26 @@ import Layout from '../layouts/Layout.astro';
 
   prevBtn.addEventListener('click', () => goTo(currentPage - 1));
   nextBtn.addEventListener('click', () => goTo(currentPage + 1));
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        goTo(currentPage + 1); // swiped left → next
+      } else {
+        goTo(currentPage - 1); // swiped right → prev
+      }
+    }
+  }, { passive: true });
 
   buildDots();
   goTo(0);
