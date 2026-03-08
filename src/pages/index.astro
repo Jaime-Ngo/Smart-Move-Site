@@ -1,11 +1,561 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <span class="eyebrow fade-up">Baltimore & Beyond</span>
+      <h1 class="hero-title fade-up fade-up-delay-1">Smart Move Logistics:<br />Big Moves,<br /><em>Boutique Service.</em></h1>
+      <p class="hero-body fade-up fade-up-delay-2">Our goal is simple: to be the best — not the cheapest. We prioritize customer satisfaction above all and are committed to delivering exceptional value with every move.</p>
+      <div class="hero-actions fade-up fade-up-delay-3">
+        <a href="/contact" class="btn-primary">Request a Quote</a>
+        <a href="/services" class="btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- THREE PILLARS -->
+  <section class="pillars section">
+    <div class="container">
+      <div class="pillars-header">
+        <span class="eyebrow">Our Standard</span>
+        <h2>Prepared. Professional. Punctual.</h2>
+      </div>
+      <p class="pillars-intro">At Smart Move, we specialize in labor-only moving services, providing expert loading and unloading without the need for company-owned trucks. Whether you're moving within Baltimore or beyond, we bring a boutique approach prioritizing quality, efficiency, and professionalism. Our owner-operated team leads from the ground, ensuring every move is handled with precision and care.</p>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="pillar-num">01</span>
+          <h3>Prepared</h3>
+          <p>Every move begins with planning. We assess, organize, and execute with a detailed understanding of what your relocation requires before we ever lift a box.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-num">02</span>
+          <h3>Professional</h3>
+          <p>Owner-operated and team-led. We hold ourselves to a higher standard because we're the ones showing up; not subcontractors, not day labor.</p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-num">03</span>
+          <h3>Punctual</h3>
+          <p>We show up when we say we will. Reliability isn't a bonus feature at Smart Move, it's the baseline expectation we set for every job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES INTRO -->
+  <section class="services-intro section">
+    <div class="container">
+      <div class="services-intro-grid">
+        <div class="services-intro-left">
+          <span class="gold-line"></span>
+          <span class="eyebrow">What We Do</span>
+          <h2>Expert Labor<br />for Every Move</h2>
+          <a href="/services" class="btn-primary" style="margin-top: 2rem;">View All Services</a>
+        </div>
+        <div class="services-intro-right">
+          <div class="service-list">
+            {[
+              ['Loading', 'Careful, efficient loading of your rental truck, POD, trailer, or container.'],
+              ['Unloading', 'Complete unloading and placement of your belongings exactly where they belong.'],
+              ['Packing & Preparation', 'Full or partial packing using professional methods and materials.'],
+              ['In-Home Moving', 'Furniture moved within your home, between floors, or during renovations.'],
+              ['Long Distance Move Execution', 'Professional loading and unloading for interstate and long-distance relocations.'],
+              ['Moving Consultation', 'Guidance on truck sizing, timelines, packing strategy, and execution.'],
+            ].map(([title, desc]) => (
+              <div class="service-row">
+                <div class="service-row-inner">
+                  <h4>{title}</h4>
+                  <p>{desc}</p>
+                </div>
+                <a href="/services" class="service-arrow">→</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- REVIEWS -->
+<section class="reviews-strip section">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center; display:block;">What Clients Say</span>
+    <h2 style="text-align:center; margin-bottom: 3.5rem;">Verified Reviews</h2>
+
+    <div class="reviews-carousel">
+      <button class="carousel-btn carousel-btn-prev" aria-label="Previous reviews">←</button>
+      <div class="reviews-track-wrapper">
+        <div class="reviews-track">
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"I'd give Smart Move six stars if it were an option. Jay and his team are professional, courteous and respectful. They show up on-time and finish on-time. Their rates are quite competitive and always match their quoted price. This is our second time using Smart Move — and there will be no other call next time either."</p>
+            <span class="review-name">— Joe B.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The crew didn't just show up on time, they showed up early and ready to go. They were very attentive and meticulous about how to handle the furniture carefully. Professional, quick, and focused on getting the job done. Will use this team again in the future."</p>
+            <span class="review-name">— Mari F.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Jay and Fran did an amazing job packing my UBoxes. They absolutely did the best job packing — barely leaving room for a toothpick. They cared for my boxes and furniture by tenderly wrapping everything in plastic and blankets. Nothing was damaged during transport."</p>
+            <span class="review-name">— Irene W.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Jay and Danny did a great job. Will be happy to hire them again someday."</p>
+            <span class="review-name">— Scott B.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Very professional and super helpful!! I truly enjoyed working with these guys. They are amazing and won't hesitate to use them again!"</p>
+            <span class="review-name">— Pamela D.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"They were fantastic! Helped us clear off sidewalk and parking spot with all the snow and ice so they could move things safely! Would use them again."</p>
+            <span class="review-name">— Samuel B.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Jay and Jonathan were wonderful. Jay went over and beyond even before the move to help us. He is so professional and so hardworking. We give this company top ratings."</p>
+            <span class="review-name">— Bobbii M.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"They were great! Arrived on-time. They were professional and efficient. Communicated very well. Completed my move within the scheduled time. I highly recommend using Smart Move."</p>
+            <span class="review-name">— Joseph B.</span>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Outstanding communication throughout the process. Incredibly helpful, hard-working, diligent. I couldn't have asked for more from a moving crew. They loaded my things as though they were their own and even taught me a few tips and pointers along the way! Would 100% recommend and hire again."</p>
+            <span class="review-name">— Evan D.</span>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-btn carousel-btn-next" aria-label="Next reviews">→</button>
+    </div>
+
+    <div class="carousel-dots"></div>
+
+    <div class="reviews-cta">
+      <a href="/testimonials" class="btn-outline">Read All Testimonials</a>
+    </div>
+  </div>
+</section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <div class="container">
+      <span class="eyebrow">Ready to Move?</span>
+      <h2>Secure Your Date Today</h2>
+      <p>We handle fewer projects intentionally so each move gets the attention it deserves. Don't wait until the last minute.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn-primary">Request a Quote</a>
+        <a href="http://movinghelp.com/SmartMoveMd" target="_blank" rel="noopener" class="btn-outline">Book on Moving Help®</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(139, 26, 46, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(201, 150, 42, 0.08) 0%, transparent 50%),
+      var(--black);
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.018'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    max-width: 760px;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.75rem;
+    color: var(--white);
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-body {
+    font-size: 1.1rem;
+    color: var(--white-dim);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-scroll-indicator span {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* PILLARS */
+  .pillars {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pillars-header { margin-bottom: 1.5rem; }
+  .pillars-header h2 { font-size: clamp(2rem, 4vw, 3rem); }
+
+  .pillars-intro {
+    color: var(--white-dim);
+    max-width: 760px;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .pillar-card {
+    background: var(--surface-2);
+    padding: 2.5rem;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .pillar-card:hover { border-top-color: var(--gold); }
+
+  .pillar-num {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .pillar-card h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .pillar-card p { font-size: 0.9rem; color: var(--white-dim); line-height: 1.75; }
+
+  /* SERVICES INTRO */
+  .services-intro { background: var(--black); }
+
+  .services-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .services-intro-left h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); }
+  .service-list { display: flex; flex-direction: column; gap: 0; }
+
+  .service-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+    gap: 1rem;
+  }
+
+  .service-row:first-child { border-top: 1px solid var(--border); }
+
+  .service-row-inner h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    color: var(--white);
+  }
+
+  .service-row-inner p { font-size: 0.85rem; color: var(--white-dim); }
+
+  .service-arrow {
+    font-size: 1.25rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .service-row:hover .service-arrow { transform: translateX(4px); }
+
+  /* REVIEWS */
+  .reviews-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .reviews-carousel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .reviews-track-wrapper {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .reviews-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .review-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: border-color 0.3s ease;
+    flex: 0 0 calc((100% - 3rem) / 3);
+    min-width: 0;
+  }
+
+  .review-card:hover { border-color: var(--border-strong); }
+
+  .review-stars {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.9rem;
+    color: var(--white-dim);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .review-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .carousel-btn {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-btn:hover {
+    border-color: var(--gold);
+    background: rgba(201, 150, 42, 0.08);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .carousel-dot.active {
+    background: var(--gold);
+    transform: scale(1.4);
+  }
+
+  .reviews-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* BOTTOM CTA */
+  .bottom-cta {
+    background: var(--crimson);
+    padding: 6rem 0;
+    text-align: center;
+  }
+
+  .bottom-cta .eyebrow { color: rgba(232, 224, 208, 0.7); }
+
+  .bottom-cta h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+
+  .bottom-cta p {
+    color: rgba(232, 224, 208, 0.8);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    font-size: 1rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .bottom-cta .btn-outline {
+    border-color: rgba(232, 224, 208, 0.5);
+    color: var(--white);
+  }
+
+  .bottom-cta .btn-outline:hover {
+    border-color: var(--white);
+    color: var(--white);
+  }
+
+  @media (max-width: 900px) {
+    .pillars-grid { grid-template-columns: 1fr; gap: 2px; }
+    .services-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .review-card { flex: 0 0 100%; }
+    .carousel-btn { display: none; }
+  }
+</style>
+
+<script>
+  const track = document.querySelector('.reviews-track') as HTMLElement;
+  const cards = document.querySelectorAll('.review-card');
+  const prevBtn = document.querySelector('.carousel-btn-prev') as HTMLButtonElement;
+  const nextBtn = document.querySelector('.carousel-btn-next') as HTMLButtonElement;
+  const dotsContainer = document.querySelector('.carousel-dots') as HTMLElement;
+
+  const isMobile = () => window.innerWidth <= 900;
+  const perPage = () => isMobile() ? 1 : 3;
+  const totalPages = () => Math.ceil(cards.length / perPage());
+  let currentPage = 0;
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalPages(); i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function goTo(page: number) {
+    currentPage = Math.max(0, Math.min(page, totalPages() - 1));
+    const cardEl = cards[0] as HTMLElement;
+    const gap = 24;
+    const cardWidth = cardEl.offsetWidth;
+    const offset = currentPage * perPage() * (cardWidth + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentPage);
+    });
+
+    prevBtn.disabled = currentPage === 0;
+    nextBtn.disabled = currentPage >= totalPages() - 1;
+  }
+
+  prevBtn.addEventListener('click', () => goTo(currentPage - 1));
+  nextBtn.addEventListener('click', () => goTo(currentPage + 1));
+
+  buildDots();
+  goTo(0);
+
+  window.addEventListener('resize', () => {
+    buildDots();
+    goTo(0);
+  });
+</script>

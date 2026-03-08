@@ -1,0 +1,416 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  { src: '/gallery/move-44.jpeg', alt: 'Smart Move team on-site at a large estate' },
+  { src: '/gallery/move-45.jpeg', alt: 'Smart Move crew carrying furniture through front door' },
+  { src: '/gallery/move-04.jpeg', alt: 'Truck loaded with wrapped furniture and boxes' },
+  { src: '/gallery/move-05.jpeg', alt: 'Appliances and furniture packed tight — full truck' },
+  { src: '/gallery/move-06.jpeg', alt: 'Wall-to-wall boxes packed floor to ceiling' },
+  { src: '/gallery/move-07.jpeg', alt: 'Bins, totes, and boxes stacked in organized layers' },
+  { src: '/gallery/move-38.jpeg', alt: 'Furniture wrapped and strapped — full truck view' },
+  { src: '/gallery/move-39.jpeg', alt: 'Fully loaded truck interior ready for transport' },
+  { src: '/gallery/move-33.jpeg', alt: 'Boxes stacked from floor to ceiling' },
+  { src: '/gallery/move-34.jpeg', alt: 'Organized load with dresser and furniture' },
+  { src: '/gallery/move-40.jpeg', alt: 'Wrapped couches secured with straps' },
+  { src: '/gallery/move-41.jpeg', alt: 'Mattresses and furniture wrapped in green stretch film' },
+  { src: '/gallery/move-46.jpeg', alt: 'Truck interior — early stage of loading' },
+  { src: '/gallery/move-47.jpeg', alt: 'Mid-load furniture arrangement' },
+  { src: '/gallery/move-48.jpeg', alt: 'Sectional sofa and shelving loaded securely' },
+  { src: '/gallery/move-49.jpeg', alt: 'Full truck — furniture and boxes wall to wall' },
+  { src: '/gallery/move-50.jpeg', alt: 'Empty truck ready — ramp down, pads folded' },
+  { src: '/gallery/move-08.jpeg', alt: 'Overhead shelf packed with boxes and bags' },
+  { src: '/gallery/move-09.jpeg', alt: 'Full truck — multiple layers of boxes and furniture' },
+  { src: '/gallery/move-10.jpeg', alt: 'Boxes stacked to the ceiling — tight pack' },
+  { src: '/gallery/move-30.jpeg', alt: 'UBox container packed efficiently' },
+  { src: '/gallery/move-31.jpeg', alt: 'Boxes stacked in clean organized rows' },
+  { src: '/gallery/move-32.jpeg', alt: 'Winter move — truck loaded and ready' },
+  { src: '/gallery/move-01.jpeg', alt: 'Furniture wrapped and loaded into rental truck' },
+  { src: '/gallery/move-42.jpeg', alt: 'Large home — truck parked and loaded' },
+  { src: '/gallery/move-43.jpeg', alt: 'U-Haul truck parked at estate on a sunny day' },
+  { src: '/gallery/move-19.jpeg', alt: 'Furniture and boxes loaded — full truck view' },
+  { src: '/gallery/move-20.jpeg', alt: 'Truck loaded with Home Depot boxes and furniture' },
+  { src: '/gallery/move-21.jpeg', alt: 'Organized truck interior with mattress and shelving' },
+  { src: '/gallery/move-22.jpeg', alt: 'Foam-padded items and boxes packed carefully' },
+  { src: '/gallery/move-23.jpeg', alt: 'Boxes and totes loaded into truck interior' },
+  { src: '/gallery/move-24.jpeg', alt: 'Fully loaded truck viewed from inside front' },
+  { src: '/gallery/move-25.jpeg', alt: 'Truck packed wall to wall' },
+  { src: '/gallery/move-11.jpeg', alt: 'Mattress wrapped and loaded onto ramp' },
+  { src: '/gallery/move-12.jpeg', alt: 'Furniture pad-wrapped and strapped in truck' },
+  { src: '/gallery/move-13.jpeg', alt: 'Overhead shelf fully packed with small boxes' },
+  { src: '/gallery/move-14.jpeg', alt: 'Overhead shelf organized with soft goods and boxes' },
+  { src: '/gallery/move-15.jpeg', alt: 'Storage unit loaded with wrapped furniture' },
+  { src: '/gallery/move-26.jpeg', alt: 'Loaded truck — green wrap and furniture' },
+  { src: '/gallery/move-27.jpeg', alt: 'UBox packed with luggage, boxes, and fragile items' },
+  { src: '/gallery/move-28.jpeg', alt: 'Winter move — truck packed and loaded in snow' },
+  { src: '/gallery/move-29.jpeg', alt: 'Storage unit organized with wrapped items' },
+  { src: '/gallery/move-35.jpeg', alt: 'Boxes and furniture loaded in 26ft truck' },
+  { src: '/gallery/move-36.jpeg', alt: 'Furniture cart loaded — hallway delivery' },
+  { src: '/gallery/move-37.jpeg', alt: 'Five UBox containers lined up — large relocation' },
+  { src: '/gallery/move-02.jpeg', alt: 'Truck interior — organized packing layers' },
+  { src: '/gallery/move-03.jpeg', alt: 'Truck interior — furniture halfway loaded' },
+  { src: '/gallery/move-16.jpeg', alt: 'Fully loaded truck — furniture and boxes secured' },
+  { src: '/gallery/move-17.jpeg', alt: 'Gun safe loaded carefully on moving pad' },
+  { src: '/gallery/move-18.jpeg', alt: 'Sporting equipment and gear packed and secured' },
+  // New photos — save uploaded files as move-51 through move-64 in /public/gallery/
+  { src: '/gallery/move-51.jpeg', alt: 'Overhead shelf packed tight with soft goods' },
+  { src: '/gallery/move-52.jpeg', alt: 'UBox container fully packed and ready for transport' },
+  { src: '/gallery/move-53.jpeg', alt: 'Mattress and furniture wrapped in moving pads' },
+  { src: '/gallery/move-54.jpeg', alt: 'Smart Move crew outside a home in winter' },
+  { src: '/gallery/move-55.jpeg', alt: 'Team member assembling bed frame on-site' },
+  { src: '/gallery/move-56.jpeg', alt: 'Truck interior with wrapped furniture and appliances' },
+  { src: '/gallery/move-57.jpeg', alt: 'Fully loaded truck — appliances and boxes secured' },
+  { src: '/gallery/move-58.jpeg', alt: 'Packed truck interior — furniture and equipment' },
+  { src: '/gallery/move-59.jpeg', alt: 'Full truck load — totes, boxes, and wrapped items' },
+  { src: '/gallery/move-60.jpeg', alt: 'Truck interior with dresser and wrapped furniture' },
+  { src: '/gallery/move-61.jpeg', alt: 'Loaded truck — chairs and mattress secured' },
+  { src: '/gallery/move-62.jpeg', alt: 'Wall of boxes stacked floor to ceiling in truck' },
+  { src: '/gallery/move-63.jpeg', alt: 'Truck interior with totes and medium boxes organized' },
+  { src: '/gallery/move-64.jpeg', alt: 'Fully loaded truck — furniture and boxes wall to wall' },
+];
+---
+
+<Layout title="Gallery" description="Real Smart Move jobs — loading, packing, and hauling across Baltimore and beyond.">
+
+  <section class="gallery-hero">
+    <div class="container">
+      <span class="eyebrow">Our Work</span>
+      <h1>Gallery</h1>
+      <p>Real jobs. Real results. Every photo is from an actual Smart Move relocation.</p>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="gallery-grid">
+      {photos.map((photo, index) => (
+        <button
+          class="gallery-item"
+          data-src={photo.src}
+          data-alt={photo.alt}
+          data-index={String(index)}
+          aria-label={photo.alt}
+        >
+          <img src={photo.src} alt={photo.alt} loading="lazy" />
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-backdrop" id="lbBackdrop"></div>
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <button class="lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-content">
+      <img id="lbImg" src="" alt="" />
+      <p id="lbCaption"></p>
+      <span id="lbCounter"></span>
+    </div>
+  </div>
+
+  <section class="gallery-cta">
+    <div class="container" style="text-align:center">
+      <span class="eyebrow">Like What You See?</span>
+      <h2>Let's Get to Work</h2>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn-primary">Request a Quote</a>
+        <a href="/testimonials" class="btn-outline">Read Reviews</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .gallery-hero {
+    padding: 9rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .gallery-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin: 0.5rem 0 1rem;
+  }
+  .gallery-hero p {
+    color: var(--white-dim);
+    max-width: 480px;
+    line-height: 1.8;
+  }
+
+  .gallery-section {
+    padding: 0;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+    background: #111;
+  }
+
+  .gallery-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #1a1a1a;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: block;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease, opacity 0.3s ease;
+    opacity: 1;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .lb-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.94);
+    cursor: pointer;
+  }
+  .lb-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  .lb-content img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.15s ease;
+  }
+  #lbCaption {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    font-style: italic;
+    margin: 0;
+  }
+  #lbCounter {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--gold, #C9962A);
+    text-transform: uppercase;
+  }
+  .lb-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 2;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 1rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .lb-close:hover { border-color: var(--gold, #C9962A); color: var(--gold, #C9962A); }
+
+  .lb-prev,
+  .lb-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 2.5rem;
+    width: 48px;
+    height: 72px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .lb-prev { left: 1rem; }
+  .lb-next { right: 1rem; }
+  .lb-prev:hover,
+  .lb-next:hover { border-color: var(--gold, #C9962A); color: var(--gold, #C9962A); }
+
+  .gallery-cta {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+    background: var(--surface, #111);
+  }
+  .gallery-cta h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0.5rem 0 0;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .lb-prev { left: 0.25rem; }
+    .lb-next { right: 0.25rem; }
+  }
+</style>
+
+<script>
+  const photos = [
+    { src: '/gallery/move-44.jpeg', alt: 'Smart Move team on-site at a large estate' },
+    { src: '/gallery/move-45.jpeg', alt: 'Smart Move crew carrying furniture through front door' },
+    { src: '/gallery/move-04.jpeg', alt: 'Truck loaded with wrapped furniture and boxes' },
+    { src: '/gallery/move-05.jpeg', alt: 'Appliances and furniture packed tight — full truck' },
+    { src: '/gallery/move-06.jpeg', alt: 'Wall-to-wall boxes packed floor to ceiling' },
+    { src: '/gallery/move-07.jpeg', alt: 'Bins, totes, and boxes stacked in organized layers' },
+    { src: '/gallery/move-38.jpeg', alt: 'Furniture wrapped and strapped — full truck view' },
+    { src: '/gallery/move-39.jpeg', alt: 'Fully loaded truck interior ready for transport' },
+    { src: '/gallery/move-33.jpeg', alt: 'Boxes stacked from floor to ceiling' },
+    { src: '/gallery/move-34.jpeg', alt: 'Organized load with dresser and furniture' },
+    { src: '/gallery/move-40.jpeg', alt: 'Wrapped couches secured with straps' },
+    { src: '/gallery/move-41.jpeg', alt: 'Mattresses and furniture wrapped in green stretch film' },
+    { src: '/gallery/move-46.jpeg', alt: 'Truck interior — early stage of loading' },
+    { src: '/gallery/move-47.jpeg', alt: 'Mid-load furniture arrangement' },
+    { src: '/gallery/move-48.jpeg', alt: 'Sectional sofa and shelving loaded securely' },
+    { src: '/gallery/move-49.jpeg', alt: 'Full truck — furniture and boxes wall to wall' },
+    { src: '/gallery/move-50.jpeg', alt: 'Empty truck ready — ramp down, pads folded' },
+    { src: '/gallery/move-08.jpeg', alt: 'Overhead shelf packed with boxes and bags' },
+    { src: '/gallery/move-09.jpeg', alt: 'Full truck — multiple layers of boxes and furniture' },
+    { src: '/gallery/move-10.jpeg', alt: 'Boxes stacked to the ceiling — tight pack' },
+    { src: '/gallery/move-30.jpeg', alt: 'UBox container packed efficiently' },
+    { src: '/gallery/move-31.jpeg', alt: 'Boxes stacked in clean organized rows' },
+    { src: '/gallery/move-32.jpeg', alt: 'Winter move — truck loaded and ready' },
+    { src: '/gallery/move-01.jpeg', alt: 'Furniture wrapped and loaded into rental truck' },
+    { src: '/gallery/move-42.jpeg', alt: 'Large home — truck parked and loaded' },
+    { src: '/gallery/move-43.jpeg', alt: 'U-Haul truck parked at estate on a sunny day' },
+    { src: '/gallery/move-19.jpeg', alt: 'Furniture and boxes loaded — full truck view' },
+    { src: '/gallery/move-20.jpeg', alt: 'Truck loaded with Home Depot boxes and furniture' },
+    { src: '/gallery/move-21.jpeg', alt: 'Organized truck interior with mattress and shelving' },
+    { src: '/gallery/move-22.jpeg', alt: 'Foam-padded items and boxes packed carefully' },
+    { src: '/gallery/move-23.jpeg', alt: 'Boxes and totes loaded into truck interior' },
+    { src: '/gallery/move-24.jpeg', alt: 'Fully loaded truck viewed from inside front' },
+    { src: '/gallery/move-25.jpeg', alt: 'Truck packed wall to wall' },
+    { src: '/gallery/move-11.jpeg', alt: 'Mattress wrapped and loaded onto ramp' },
+    { src: '/gallery/move-12.jpeg', alt: 'Furniture pad-wrapped and strapped in truck' },
+    { src: '/gallery/move-13.jpeg', alt: 'Overhead shelf fully packed with small boxes' },
+    { src: '/gallery/move-14.jpeg', alt: 'Overhead shelf organized with soft goods and boxes' },
+    { src: '/gallery/move-15.jpeg', alt: 'Storage unit loaded with wrapped furniture' },
+    { src: '/gallery/move-26.jpeg', alt: 'Loaded truck — green wrap and furniture' },
+    { src: '/gallery/move-27.jpeg', alt: 'UBox packed with luggage, boxes, and fragile items' },
+    { src: '/gallery/move-28.jpeg', alt: 'Winter move — truck packed and loaded in snow' },
+    { src: '/gallery/move-29.jpeg', alt: 'Storage unit organized with wrapped items' },
+    { src: '/gallery/move-35.jpeg', alt: 'Boxes and furniture loaded in 26ft truck' },
+    { src: '/gallery/move-36.jpeg', alt: 'Furniture cart loaded — hallway delivery' },
+    { src: '/gallery/move-37.jpeg', alt: 'Five UBox containers lined up — large relocation' },
+    { src: '/gallery/move-02.jpeg', alt: 'Truck interior — organized packing layers' },
+    { src: '/gallery/move-03.jpeg', alt: 'Truck interior — furniture halfway loaded' },
+    { src: '/gallery/move-16.jpeg', alt: 'Fully loaded truck — furniture and boxes secured' },
+    { src: '/gallery/move-17.jpeg', alt: 'Gun safe loaded carefully on moving pad' },
+    { src: '/gallery/move-18.jpeg', alt: 'Sporting equipment and gear packed and secured' },
+    { src: '/gallery/move-51.jpeg', alt: 'Overhead shelf packed tight with soft goods' },
+    { src: '/gallery/move-52.jpeg', alt: 'UBox container fully packed and ready for transport' },
+    { src: '/gallery/move-53.jpeg', alt: 'Mattress and furniture wrapped in moving pads' },
+    { src: '/gallery/move-54.jpeg', alt: 'Smart Move crew outside a home in winter' },
+    { src: '/gallery/move-55.jpeg', alt: 'Team member assembling bed frame on-site' },
+    { src: '/gallery/move-56.jpeg', alt: 'Truck interior with wrapped furniture and appliances' },
+    { src: '/gallery/move-57.jpeg', alt: 'Fully loaded truck — appliances and boxes secured' },
+    { src: '/gallery/move-58.jpeg', alt: 'Packed truck interior — furniture and equipment' },
+    { src: '/gallery/move-59.jpeg', alt: 'Full truck load — totes, boxes, and wrapped items' },
+    { src: '/gallery/move-60.jpeg', alt: 'Truck interior with dresser and wrapped furniture' },
+    { src: '/gallery/move-61.jpeg', alt: 'Loaded truck — chairs and mattress secured' },
+    { src: '/gallery/move-62.jpeg', alt: 'Wall of boxes stacked floor to ceiling in truck' },
+    { src: '/gallery/move-63.jpeg', alt: 'Truck interior with totes and medium boxes organized' },
+    { src: '/gallery/move-64.jpeg', alt: 'Fully loaded truck — furniture and boxes wall to wall' },
+  ];
+
+  let current = 0;
+
+  const lb      = document.getElementById('lightbox')!;
+  const lbImg   = document.getElementById('lbImg') as HTMLImageElement;
+  const lbCap   = document.getElementById('lbCaption')!;
+  const lbCount = document.getElementById('lbCounter')!;
+
+  function show(index: number) {
+    current = (index + photos.length) % photos.length;
+    lbImg.style.opacity = '0';
+    setTimeout(() => {
+      lbImg.src = photos[current].src;
+      lbImg.alt = photos[current].alt;
+      lbCap.textContent = photos[current].alt;
+      lbCount.textContent = `${current + 1} / ${photos.length}`;
+      lbImg.style.opacity = '1';
+    }, 120);
+  }
+
+  function open(index: number) {
+    show(index);
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('.gallery-item').forEach((btn, i) => {
+    btn.addEventListener('click', () => open(i));
+  });
+
+  document.getElementById('lbClose')!.addEventListener('click', close);
+  document.getElementById('lbBackdrop')!.addEventListener('click', close);
+  document.getElementById('lbPrev')!.addEventListener('click', () => show(current - 1));
+  document.getElementById('lbNext')!.addEventListener('click', () => show(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowLeft')   show(current - 1);
+    if (e.key === 'ArrowRight')  show(current + 1);
+  });
+</script>

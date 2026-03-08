@@ -1,0 +1,301 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Request a quote or book your moving date directly with Smart Move Logistics.">
+
+  <section class="contact-hero section">
+    <div class="container">
+      <span class="eyebrow">Get In Touch</span>
+      <h1>Let's Plan Your Move</h1>
+    </div>
+  </section>
+
+  <section class="contact-body section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- REQUEST A QUOTE -->
+        <div class="contact-panel">
+          <div class="panel-header">
+            <span class="eyebrow">Need Pricing First?</span>
+            <h2>Request A Quote</h2>
+            <p>Tell us a bit about your move and we'll respond promptly with clear next steps.</p>
+          </div>
+          <form class="quote-form" id="quoteForm">
+            <!-- Web3Forms -->
+            <input type="hidden" name="access_key" value="72e889d6-88b5-42be-84d0-839a5cdb351d" />
+            <input type="hidden" name="subject" value="New Quote Request – Smart Move Logistics" />
+            <input type="checkbox" name="botcheck" style="display:none" />
+
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="serviceAddress">Service Address</label>
+              <input type="text" id="serviceAddress" name="serviceAddress" placeholder="Current address" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(410) 000-0000" required />
+            </div>
+            <div class="form-group">
+              <label for="moveDate">Desired Move Date</label>
+              <input type="date" id="moveDate" name="moveDate" required />
+            </div>
+            <div class="form-group">
+              <label for="description">Brief Description of Move <span class="optional">(optional but recommended)</span></label>
+              <textarea id="description" name="description" placeholder="Size of home, items needing special care, any relevant details..." rows="4"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary" id="submitBtn">Request Quote</button>
+              <span class="form-note" id="formNote">We review each inquiry personally.</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- BOOK NOW -->
+        <div class="contact-panel contact-panel-right">
+          <div class="panel-divider"></div>
+          <div class="panel-header">
+            <span class="eyebrow">Ready to Secure Your Date?</span>
+            <h2>Book Now</h2>
+            <p>If you're prepared to move forward, you can reserve your moving labor directly through our Moving Help® profile.</p>
+          </div>
+          <div class="book-block">
+            <a href="http://movinghelp.com/SmartMoveMd" target="_blank" rel="noopener" class="btn-primary book-btn">Book on Moving Help®</a>
+            <span class="form-note">Direct scheduling for confirmed projects.</span>
+          </div>
+          <div class="contact-info-block">
+            <span class="gold-line"></span>
+            <span class="eyebrow">Why Two Options?</span>
+            <p>The quote form is for clients who want to discuss scope, pricing, and timing before committing. The booking link is for clients who are ready to lock in a date now. Either way, you'll hear from us promptly.</p>
+          </div>
+          <div class="contact-links">
+            <span class="eyebrow" style="margin-bottom: 1rem; display: block;">External Reviews</span>
+            <a href="https://www.uhaul.com/MovingHelp/Reviews/114383/0/?modal=True" target="_blank" rel="noopener" class="ext-link">
+              <span>U-Haul Moving Help® Reviews</span>
+              <span>→</span>
+            </a>
+            <a href="https://share.google/y9Ng5XgdrkCePuRtf" target="_blank" rel="noopener" class="ext-link">
+              <span>Google Reviews</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script is:inline>
+  const form = document.getElementById('quoteForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formNote = document.getElementById('formNote');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+      const result = await response.json();
+
+      if (response.status === 200) {
+        formNote.textContent = '✓ Request sent! We\'ll be in touch soon.';
+        formNote.style.color = 'var(--gold)';
+        form.reset();
+      } else {
+        formNote.textContent = result.message || 'Something went wrong. Please try again.';
+        formNote.style.color = '#ff6b6b';
+      }
+    } catch (error) {
+      formNote.textContent = 'Network error. Please try again.';
+      formNote.style.color = '#ff6b6b';
+    }
+
+    submitBtn.textContent = 'Request Quote';
+    submitBtn.disabled = false;
+  });
+</script>
+
+<style>
+  .contact-hero {
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: start;
+  }
+
+  .contact-panel {
+    padding: 3rem 3rem 3rem 0;
+  }
+
+  .contact-panel-right {
+    padding: 3rem 0 3rem 3rem;
+    border-left: 1px solid var(--border);
+    position: relative;
+  }
+
+  .panel-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .panel-header h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .panel-header p {
+    color: var(--white-dim);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .optional {
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    color: var(--white-dim);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.72rem;
+  }
+
+  input, textarea {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.85rem 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    width: 100%;
+    resize: vertical;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: rgba(184, 176, 160, 0.4);
+  }
+
+  input:focus, textarea:focus {
+    border-color: var(--gold);
+  }
+
+  input[type="date"] {
+    color-scheme: dark;
+  }
+
+  .form-submit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .form-note {
+    font-size: 0.78rem;
+    color: var(--white-dim);
+    font-style: italic;
+    transition: color 0.3s ease;
+  }
+
+  .book-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .book-btn {
+    display: inline-block;
+  }
+
+  .contact-info-block {
+    margin-bottom: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-info-block p {
+    color: var(--white-dim);
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .ext-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--white-dim);
+    transition: color 0.2s ease;
+  }
+
+  .ext-link:hover {
+    color: var(--gold);
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-panel { padding: 2rem 0; }
+    .contact-panel-right { padding: 2rem 0; border-left: none; border-top: 1px solid var(--border); }
+  }
+</style>

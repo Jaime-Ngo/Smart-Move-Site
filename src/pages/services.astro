@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    number: '01',
+    title: 'Loading',
+    description: 'Careful, efficient loading of your rental truck, POD, trailer, or container. Every item placed with intention to maximize space and prevent damage during transit.',
+  },
+  {
+    number: '02',
+    title: 'Unloading',
+    description: 'Complete unloading and placement of your belongings exactly where they belong in your new home. We don\'t leave boxes in the middle of the room — we finish the job properly.',
+  },
+  {
+    number: '03',
+    title: 'Packing & Preparation',
+    description: 'Full or partial packing services using professional methods and materials. Fragile items, kitchens, and high-value pieces packed securely for transport.',
+  },
+  {
+    number: '04',
+    title: 'In-Home Moving & Furniture Rearranging',
+    description: 'Furniture moved within your home, between floors, or during renovations, staging, or redesign. The same level of care as a full relocation, without the truck.',
+  },
+  {
+    number: '05',
+    title: 'Long Distance Move Execution',
+    description: 'Professional loading and unloading for interstate and long-distance relocations. We ensure your truck or container is packed correctly so everything arrives safely.',
+  },
+  {
+    number: '06',
+    title: 'Moving Consultation & Logistics Planning',
+    description: 'Guidance on truck sizing, timelines, packing strategy, and move execution. We help clients avoid costly mistakes and ensure the move runs smoothly from start to finish.',
+  },
+];
+---
+
+<Layout title="Services" description="Expert labor-only moving services including loading, unloading, packing, in-home moving, long distance execution, and logistics consultation.">
+
+  <section class="services-hero section">
+    <div class="container">
+      <span class="eyebrow">What We Offer</span>
+      <h1>Our Services</h1>
+      <p class="services-intro">Labor-only moving expertise — without the overhead of a full-service company. We bring the skill, the care, and the leadership to your move.</p>
+    </div>
+  </section>
+
+  <section class="services-list section">
+    <div class="container">
+      {services.map((service) => (
+        <div class="service-item">
+          <span class="service-item-num">{service.number}</span>
+          <div class="service-item-body">
+            <h2>{service.title}</h2>
+            <p>{service.description}</p>
+          </div>
+          <a href="/contact" class="service-item-cta">Get a Quote →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="services-bottom-cta section">
+    <div class="container">
+      <div class="services-cta-inner">
+        <div>
+          <span class="eyebrow">Ready to Get Started?</span>
+          <h2>Let's Plan Your Move</h2>
+          <p>Tell us about your move and we'll come back with clear, straightforward next steps. No pressure, no confusion.</p>
+        </div>
+        <div class="services-cta-actions">
+          <a href="/contact" class="btn-primary">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .services-hero {
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .services-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .services-intro {
+    color: var(--white-dim);
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .service-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+  }
+
+  .service-item:first-child { border-top: 1px solid var(--border); }
+
+  .service-item-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  .service-item-body h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-item-body p {
+    font-size: 0.9rem;
+    color: var(--white-dim);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  .service-item-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .service-item:hover .service-item-cta {
+    color: var(--gold-light);
+    transform: translateX(4px);
+  }
+
+  .services-bottom-cta {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+
+  .services-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .services-cta-inner h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .services-cta-inner p {
+    color: var(--white-dim);
+    max-width: 420px;
+    font-size: 0.95rem;
+  }
+
+  .services-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .service-item { grid-template-columns: 1fr; gap: 0.75rem; }
+    .service-item-num { margin-bottom: -0.25rem; }
+    .services-cta-inner { flex-direction: column; }
+    .services-cta-actions { flex-direction: row; flex-wrap: wrap; }
+  }
+</style>

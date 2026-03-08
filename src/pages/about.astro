@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Us" description="Smart Move was built to raise the standard in an industry defined by inconsistency. Owner-operated, hands-on, and committed to excellence.">
+
+  <section class="about-hero section">
+    <div class="container">
+      <span class="eyebrow">Our Story</span>
+      <h1 class="about-title">Where Scale Meets Precision</h1>
+    </div>
+  </section>
+
+  <section class="about-body section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-col">
+          <div class="about-image-frame">
+            <img src="/gallery/professional.jpeg" alt="Smart Move Owner" class="about-photo" />
+          </div>
+          <div class="about-stat-block">
+            <div class="stat">
+              <span class="stat-num">150+</span>
+              <span class="stat-label">Verified Reviews</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5★</span>
+              <span class="stat-label">Average Rating</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text-col">
+          <span class="gold-line"></span>
+          <div class="about-body-text">
+            <p>At Smart Move, we redefine what a moving company can be. Built on the belief that excellence comes from leadership and hands-on commitment, we are more than movers — we are trusted partners in relocation.</p>
+            <p>Smart Move was founded to raise the standard in an industry often defined by inconsistency. Frustrated by widespread underperformance, our owner-operator built a company where punctuality, preparedness, and professionalism are non-negotiable.</p>
+            <p>We specialize in substantial, carefully executed moves. Rather than prioritizing volume, we intentionally handle fewer projects so each receives the attention, planning, and precision it deserves. Every move is led with oversight, discipline, and a unified team committed to doing the job properly.</p>
+            <p>The result is a relocation experience that feels organized, controlled, and handled — exactly as it should be.</p>
+          </div>
+          <div class="about-values">
+            {[
+              ['Owner-Operated', 'Leadership is present on every single job — not managing from a desk.'],
+              ['Quality Over Volume', 'Fewer moves means more attention for yours.'],
+              ['No-Compromise Standard', 'Punctuality, preparedness, and professionalism are baseline expectations.'],
+            ].map(([title, desc]) => (
+              <div class="about-value">
+                <span class="about-value-title">{title}</span>
+                <span class="about-value-desc">{desc}</span>
+              </div>
+            ))}
+          </div>
+          <a href="/contact" class="btn-primary" style="margin-top: 2.5rem;">Work With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .about-hero {
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    max-width: 700px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-image-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .about-stat-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .stat {
+    background: var(--surface-2);
+    padding: 1.5rem;
+    border-top: 2px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+  }
+
+  .about-body-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    color: var(--white-dim);
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .about-values {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .about-value {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .about-value-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .about-value-desc {
+    font-size: 0.85rem;
+    color: var(--white-dim);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-value { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+</style>

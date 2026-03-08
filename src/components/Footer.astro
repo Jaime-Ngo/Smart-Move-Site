@@ -1,0 +1,103 @@
+---
+---
+
+<footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/logo.png" alt="Smart Move Logistics" />
+          <p>Big Moves, Boutique Service.<br />Baltimore & Beyond.</p>
+        </div>
+        <div class="footer-links">
+          <span class="footer-label">Navigation</span>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/testimonials">Testimonials</a>
+          <a href="/gallery">Gallery</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <span class="footer-label">Book & Review</span>
+          <a href="http://movinghelp.com/SmartMoveMd" target="_blank" rel="noopener">Book on Moving Help®</a>
+          <a href="https://www.uhaul.com/MovingHelp/Reviews/114383/0/?modal=True" target="_blank" rel="noopener">U-Haul Reviews</a>
+          <a href="https://share.google/y9Ng5XgdrkCePuRtf" target="_blank" rel="noopener">Google Reviews</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Smart Move Logistics. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <style>
+    .footer {
+      background: var(--off-black);
+      border-top: 1px solid var(--border);
+      padding: 4rem 0 2rem;
+    }
+  
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+  
+    .footer-brand img {
+      height: 56px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+  
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--white-dim);
+      line-height: 1.6;
+    }
+  
+    .footer-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+  
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--white-dim);
+      transition: color 0.2s ease;
+    }
+  
+    .footer-links a:hover {
+      color: var(--white);
+    }
+  
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+  
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: var(--white-dim);
+      letter-spacing: 0.05em;
+    }
+  
+    @media (max-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
