@@ -8,8 +8,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="hero-bg"></div>
     <div class="container hero-content">
       <span class="eyebrow fade-up">Baltimore & Beyond</span>
-      <h1 class="hero-title fade-up fade-up-delay-1">Smart Move Logistics:<br />Big Moves,<br /><em>Boutique Service.</em></h1>
-      <p class="hero-body fade-up fade-up-delay-2">Our goal is simple: to be the best — not the cheapest. We prioritize customer satisfaction above all and are committed to delivering exceptional value with every move.</p>
+      <img 
+      src="/hero-title.png" 
+      alt="Smart Move Logistics: Big Moves, Boutique Service." 
+      class="hero-title-img fade-up fade-up-delay-1"
+    />      <p class="hero-body fade-up fade-up-delay-2">Our goal is simple: to be the best — not the cheapest. We prioritize customer satisfaction above all and are committed to delivering exceptional value with every move.</p>
       <div class="hero-actions fade-up fade-up-delay-3">
         <a href="/contact" class="btn-primary">Request a Quote</a>
         <a href="/services" class="btn-outline">Our Services</a>
@@ -43,6 +46,34 @@ import Layout from '../layouts/Layout.astro';
           <span class="pillar-num">03</span>
           <h3>Punctual</h3>
           <p>We show up when we say we will. Reliability isn't a bonus feature at Smart Move, it's the baseline expectation we set for every job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="video-feature section">
+    <div class="container">
+      <div class="video-header">
+        <span class="eyebrow">See Us Work</span>
+        <h2>Moving Done Right</h2>
+      </div>
+      <div class="video-wrapper">
+        <video
+          class="feature-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source src="/smart-move-in-action.mp4" type="video/mp4" />
+          <source src="/smart-move-in-action.mov" type="video/quicktime" />
+        </video>
+        <div class="video-overlay">
+          <button class="video-control-btn" aria-label="Pause video">
+            <span class="control-icon">⏸</span>
+          </button>
         </div>
       </div>
     </div>
@@ -209,13 +240,12 @@ import Layout from '../layouts/Layout.astro';
     max-width: 760px;
   }
 
-  .hero-title {
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 1.75rem;
-    color: var(--white);
-  }
+  .hero-title-img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  margin-bottom: 1.75rem;
+}
 
   .hero-title em {
     font-style: italic;
@@ -301,6 +331,76 @@ import Layout from '../layouts/Layout.astro';
 
   .pillar-card h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
   .pillar-card p { font-size: 0.9rem; color: var(--white-dim); line-height: 1.75; }
+
+
+  /* ── Video Feature ── */
+
+  .video-feature {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .video-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .video-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface-2);
+  }
+
+  .feature-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.3s ease, background 0.3s ease;
+  }
+
+  .video-wrapper:hover .video-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  .video-control-btn {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    backdrop-filter: blur(6px);
+  }
+
+  .video-control-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(0, 0, 0, 0.75);
+  }
 
 
   .services-intro { background: var(--black); }
@@ -504,10 +604,12 @@ import Layout from '../layouts/Layout.astro';
     .pillars-grid { grid-template-columns: 1fr; gap: 2px; }
     .services-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .review-card { flex: 0 0 100%; }
+    .video-wrapper { aspect-ratio: 9 / 16; }
   }
 </style>
 
 <script>
+  // ── Carousel ──
   const track = document.querySelector('.reviews-track') as HTMLElement;
   const cards = document.querySelectorAll('.review-card');
   const prevBtn = document.querySelector('.carousel-btn-prev') as HTMLButtonElement;
@@ -555,5 +657,20 @@ import Layout from '../layouts/Layout.astro';
   window.addEventListener('resize', () => {
     buildDots();
     goTo(0);
+  });
+
+  // ── Video ──
+  const featureVideo = document.querySelector('.feature-video') as HTMLVideoElement;
+  const controlBtn = document.querySelector('.video-control-btn') as HTMLButtonElement;
+  const controlIcon = controlBtn?.querySelector('.control-icon') as HTMLElement;
+
+  controlBtn?.addEventListener('click', () => {
+    if (featureVideo.paused) {
+      featureVideo.play();
+      controlIcon.textContent = '⏸';
+    } else {
+      featureVideo.pause();
+      controlIcon.textContent = '▶';
+    }
   });
 </script>
