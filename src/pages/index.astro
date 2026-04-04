@@ -116,71 +116,185 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="reviews-strip section">
     <div class="container">
-      <span class="eyebrow" style="text-align:center; display:block;">What Clients Say</span>
-      <h2 style="text-align:center; margin-bottom: 3.5rem;">Verified Reviews</h2>
+      <div class="reviews-header">
+        <div class="google-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <span class="google-label">Google Reviews</span>
+        </div>
+        <span class="eyebrow" style="text-align:center; display:block;">What Clients Say</span>
+        <h2 style="text-align:center; margin-bottom: 3.5rem;">Verified Reviews</h2>
+      </div>
 
       <div class="reviews-carousel">
-        <button class="carousel-btn carousel-btn-prev" aria-label="Previous reviews">←</button>
+        <button class="carousel-btn carousel-btn-prev" aria-label="Previous reviews">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
         <div class="reviews-track-wrapper">
           <div class="reviews-track">
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"I'd give Smart Move six stars if it were an option. Jay and his team are professional, courteous and respectful. They show up on-time and finish on-time. Their rates are quite competitive and always match their quoted price. This is our second time using Smart Move — and there will be no other call next time either."</p>
-              <span class="review-name">— Joe B.</span>
+            <div class="review-card" data-initials="JB" data-color="#4285F4">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>JB</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Joe B.</span>
+              <span class="review-time">11 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">I'd give Smart Move six stars if it were an option. Jay and his team are professional, courteous and respectful. They show up on-time and finish on-time. Their rates are quite competitive and always match their quoted price. This is our second time using Smart Move — and there will be no other call next time either.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"The crew didn't just show up on time, they showed up early and ready to go. They were very attentive and meticulous about how to handle the furniture carefully. Professional, quick, and focused on getting the job done. Will use this team again in the future."</p>
-              <span class="review-name">— Mari F.</span>
+            <div class="review-card" data-initials="MF" data-color="#EA4335">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>MF</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Mari F.</span>
+              <span class="review-time">12 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">The crew didn't just show up on time, they showed up early and ready to go. They were very attentive and meticulous about how to handle the furniture carefully. Professional, quick, and focused on getting the job done. Will use this team again in the future.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Jay and Fran did an amazing job packing my UBoxes. They absolutely did the best job packing — barely leaving room for a toothpick. They cared for my boxes and furniture by tenderly wrapping everything in plastic and blankets. Nothing was damaged during transport."</p>
-              <span class="review-name">— Irene W.</span>
+            <div class="review-card" data-initials="IW" data-color="#34A853">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>IW</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Irene W.</span>
+              <span class="review-time">12 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">Jay and Fran did an amazing job packing my UBoxes. They absolutely did the best job packing — barely leaving room for a toothpick. They cared for my boxes and furniture by tenderly wrapping everything in plastic and blankets. Nothing was damaged during transport.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Jay and Danny did a great job. Will be happy to hire them again someday."</p>
-              <span class="review-name">— Scott B.</span>
+            <div class="review-card" data-initials="SB" data-color="#FBBC05">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>SB</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Scott B.</span>
+              <span class="review-time">1 year ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">Jay and Danny did a great job. Will be happy to hire them again someday.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Very professional and super helpful!! I truly enjoyed working with these guys. They are amazing and won't hesitate to use them again!"</p>
-              <span class="review-name">— Pamela D.</span>
+            <div class="review-card" data-initials="PD" data-color="#EA4335">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>PD</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Pamela D.</span>
+              <span class="review-time">10 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">Very professional and super helpful!! I truly enjoyed working with these guys. They are amazing and won't hesitate to use them again!</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"They were fantastic! Helped us clear off sidewalk and parking spot with all the snow and ice so they could move things safely! Would use them again."</p>
-              <span class="review-name">— Samuel B.</span>
+            <div class="review-card" data-initials="SB" data-color="#34A853">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>SB</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Samuel B.</span>
+              <span class="review-time">12 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">They were fantastic! Helped us clear off sidewalk and parking spot with all the snow and ice so they could move things safely! Would use them again.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Jay and Jonathan were wonderful. Jay went over and beyond even before the move to help us. He is so professional and so hardworking. We give this company top ratings."</p>
-              <span class="review-name">— Bobbii M.</span>
+            <div class="review-card" data-initials="BM" data-color="#4285F4">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>BM</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Bobbii M.</span>
+              <span class="review-time">11 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">Jay and Jonathan were wonderful. Jay went over and beyond even before the move to help us. He is so professional and so hardworking. We give this company top ratings.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"They were great! Arrived on-time. They were professional and efficient. Communicated very well. Completed my move within the scheduled time. I highly recommend using Smart Move."</p>
-              <span class="review-name">— Joseph B.</span>
+            <div class="review-card" data-initials="JB" data-color="#FBBC05">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>JB</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Joseph B.</span>
+              <span class="review-time">12 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">They were great! Arrived on-time. They were professional and efficient. Communicated very well. Completed my move within the scheduled time. I highly recommend using Smart Move.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
-            <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">"Outstanding communication throughout the process. Incredibly helpful, hard-working, diligent. I couldn't have asked for more from a moving crew. They loaded my things as though they were their own and even taught me a few tips and pointers along the way! Would 100% recommend and hire again."</p>
-              <span class="review-name">— Evan D.</span>
+            <div class="review-card" data-initials="ED" data-color="#34A853">
+              <div class="review-card-avatar">
+                <div class="avatar-circle"><span>ED</span></div>
+                <div class="google-g-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                </div>
+              </div>
+              <span class="review-name">Evan D.</span>
+              <span class="review-time">9 months ago</span>
+              <div class="review-stars-row">
+                <div class="review-stars">★★★★★</div>
+                <svg class="verified-check" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4"/><path d="M10 15.5l-3.5-3.5 1.41-1.41L10 12.67l5.59-5.59L17 8.5z" fill="white"/></svg>
+              </div>
+              <p class="review-text">Outstanding communication throughout the process. Incredibly helpful, hard-working, diligent. I couldn't have asked for more from a moving crew. They loaded my things as though they were their own and even taught me a few tips and pointers along the way! Would 100% recommend and hire again.</p>
+              <button class="read-more-btn">Read more</button>
             </div>
 
           </div>
         </div>
-        <button class="carousel-btn carousel-btn-next" aria-label="Next reviews">→</button>
+        <button class="carousel-btn carousel-btn-next" aria-label="Next reviews">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
       </div>
 
       <div class="carousel-dots"></div>
@@ -449,10 +563,32 @@ import Layout from '../layouts/Layout.astro';
   .service-row:hover .service-arrow { transform: translateX(4px); }
 
 
+  /* ── Google Reviews ── */
+
   .reviews-strip {
     background: var(--surface);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+  }
+
+  .reviews-header {
+    text-align: center;
+  }
+
+  .google-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+
+  .google-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white-dim);
   }
 
   .reviews-carousel {
@@ -469,68 +605,165 @@ import Layout from '../layouts/Layout.astro';
 
   .reviews-track {
     display: flex;
-    gap: 1.5rem;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 1.25rem;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.15, 1);
   }
 
   .review-card {
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    padding: 2rem;
-    transition: border-color 0.3s ease;
-    flex: 0 0 calc((100% - 3rem) / 3);
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 0 0 calc((100% - 3.75rem) / 4);
     min-width: 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.25s ease;
+    border: none;
   }
 
-  .review-card:hover { border-color: var(--border-strong); }
-
-  .review-stars {
-    color: var(--gold);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
+  .review-card:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.06);
   }
 
-  .review-text {
-    font-size: 0.9rem;
-    color: var(--white-dim);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
-    font-style: italic;
+  .review-card-avatar {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 0.75rem;
   }
 
-  .review-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--white);
-  }
-
-  .carousel-btn {
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    color: var(--gold);
-    width: 2.75rem;
-    height: 2.75rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: border-color 0.2s ease, background 0.2s ease;
+  .avatar-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  .avatar-circle span {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .google-g-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  .review-card .review-name {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #202124;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 0.1rem;
+    display: block;
+  }
+
+  .review-time {
+    font-size: 0.75rem;
+    color: #70757a;
+    margin-bottom: 0.6rem;
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .review-stars-row {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .review-card .review-stars {
+    color: #F4B400;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+  }
+
+  .verified-check {
+    flex-shrink: 0;
+  }
+
+  .review-card .review-text {
+    font-size: 0.82rem;
+    color: #3c4043;
+    line-height: 1.55;
+    margin-bottom: 0;
+    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .review-card .review-text.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
+  .read-more-btn {
+    background: none;
+    border: none;
+    color: #1a73e8;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: color 0.2s ease;
+  }
+
+  .read-more-btn:hover {
+    color: #1557b0;
+  }
+
+  .carousel-btn {
+    background: #ffffff;
+    border: none;
+    color: #5f6368;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
   .carousel-btn:hover {
-    border-color: var(--gold);
-    background: rgba(201, 150, 42, 0.08);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08);
   }
 
   .carousel-btn:disabled {
-    opacity: 0.25;
+    opacity: 0.35;
     cursor: not-allowed;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.5);
   }
 
   .carousel-dots {
@@ -541,19 +774,19 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .carousel-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--border-strong);
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
     border: none;
     cursor: pointer;
     padding: 0;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background 0.3s ease, width 0.3s ease;
   }
 
   .carousel-dot.active {
-    background: var(--gold);
-    transform: scale(1.4);
+    background: #F4B400;
+    width: 24px;
   }
 
   .reviews-cta {
@@ -600,15 +833,43 @@ import Layout from '../layouts/Layout.astro';
     color: var(--white);
   }
 
+  @media (max-width: 1100px) {
+    .review-card { flex: 0 0 calc((100% - 2.5rem) / 3); }
+  }
+
   @media (max-width: 900px) {
     .pillars-grid { grid-template-columns: 1fr; gap: 2px; }
     .services-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .review-card { flex: 0 0 100%; }
+    .review-card { flex: 0 0 calc((100% - 1.25rem) / 2); }
     .video-wrapper { aspect-ratio: 9 / 16; }
+  }
+
+  @media (max-width: 560px) {
+    .review-card { flex: 0 0 100%; }
   }
 </style>
 
 <script>
+  // ── Reviews: set avatar colors from data attributes ──
+  document.querySelectorAll('.review-card').forEach((card) => {
+    const el = card as HTMLElement;
+    const color = el.dataset.color || '#4285F4';
+    const avatar = el.querySelector('.avatar-circle') as HTMLElement;
+    if (avatar) avatar.style.backgroundColor = color;
+  });
+
+  // ── Reviews: Read more toggle ──
+  document.querySelectorAll('.read-more-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.review-card');
+      const text = card?.querySelector('.review-text');
+      if (text) {
+        const isExpanded = text.classList.toggle('expanded');
+        (btn as HTMLElement).textContent = isExpanded ? 'Show less' : 'Read more';
+      }
+    });
+  });
+
   // ── Carousel ──
   const track = document.querySelector('.reviews-track') as HTMLElement;
   const cards = document.querySelectorAll('.review-card');
@@ -616,9 +877,15 @@ import Layout from '../layouts/Layout.astro';
   const nextBtn = document.querySelector('.carousel-btn-next') as HTMLButtonElement;
   const dotsContainer = document.querySelector('.carousel-dots') as HTMLElement;
 
-  const isMobile = () => window.innerWidth <= 900;
-  const perPage = () => isMobile() ? 1 : 3;
-  const totalPages = () => Math.ceil(cards.length / perPage());
+  const getPerPage = () => {
+    const w = window.innerWidth;
+    if (w <= 560) return 1;
+    if (w <= 900) return 2;
+    if (w <= 1100) return 3;
+    return 4;
+  };
+
+  const totalPages = () => Math.ceil(cards.length / getPerPage());
   let currentPage = 0;
 
   function buildDots() {
@@ -635,9 +902,9 @@ import Layout from '../layouts/Layout.astro';
   function goTo(page: number) {
     currentPage = Math.max(0, Math.min(page, totalPages() - 1));
     const cardEl = cards[0] as HTMLElement;
-    const gap = 24;
+    const gap = 20; /* 1.25rem */
     const cardWidth = cardEl.offsetWidth;
-    const offset = currentPage * perPage() * (cardWidth + gap);
+    const offset = currentPage * getPerPage() * (cardWidth + gap);
     track.style.transform = `translateX(-${offset}px)`;
 
     document.querySelectorAll('.carousel-dot').forEach((d, i) => {
